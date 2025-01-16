@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@better-fetch/fetch": "^1.1.12",
+    "@radix-ui/react-separator": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "better-auth": "^1.1.11",
     "class-variance-authority": "^0.7.1",
@@ -21,6 +22,7 @@
     "next": "15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-resizable-panels": "^2.1.7",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
   },
