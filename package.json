@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@better-fetch/fetch": "^1.1.12",
+    "@codemirror/lang-javascript": "^6.2.2",
     "@radix-ui/react-slot": "^1.1.1",
+    "@uiw/react-codemirror": "^4.23.7",
     "better-auth": "^1.1.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
