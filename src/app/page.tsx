@@ -1,12 +1,14 @@
-import SignIn from '@/components/Sign-In';
-import Image from 'next/image';
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import Image from 'next/image'
+import { auth } from '@/lib/auth'
+import { headers } from 'next/headers'
+import Link from 'next/link'
+import Account from '@/components/Account'
+import { Button } from '@/components/ui/button'
 
 export default async function Home() {
   const session = await auth.api.getSession({
     headers: await headers(),
-  });
+  })
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -55,8 +57,12 @@ export default async function Home() {
             Read our docs
           </a>
         </div>
-        <SignIn />
-        <p>{session?.user?.email}</p>
+        {!session && (
+          <Button asChild>
+            <Link href="/login">Login</Link>
+          </Button>
+        )}
+        <Account />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
@@ -106,5 +112,5 @@ export default async function Home() {
         </a>
       </footer>
     </div>
-  );
+  )
 }
