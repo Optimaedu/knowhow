@@ -71,7 +71,7 @@ model Challenge {
   id          Int      @id @default(autoincrement())
   title       String
   description String
-  test        String
+  level       Int
   boilerplate String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now()) @updatedAt
