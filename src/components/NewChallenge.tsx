@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -35,7 +35,6 @@ export default function CreateChallenge() {
   const [instructions, setInstructions] = useState('')
   const [difficulty, setDifficulty] = useState('')
   const [tips, setTips] = useState('')
-  const [exampleCode, setExampleCode] = useState('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const router = useRouter()
   const [tests, setTests] = useState(`describe('reverse', [
@@ -75,12 +74,6 @@ export default function CreateChallenge() {
       setIsLoading(false)
     }
   }
-
-  useEffect(() => {
-    setExampleCode(`test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
-});`)
-  }, [])
 
   return (
     <div className="container mx-auto p-4">
@@ -158,15 +151,27 @@ export default function CreateChallenge() {
                       <DialogTitle>
                         Instructions on how to write tests
                       </DialogTitle>
-                      <DialogDescription className="flex flex-col gap-3">
-                        Example: test that verifies the output of a function
-                        that adds two numbers.
-                        <ReactCodeMirror
-                          value={exampleCode}
-                          extensions={[javascript()]}
-                          readOnly
-                          className="border border-gray-400 rounded-lg shadow-inner p-2 cursor-default "
-                        />
+                      <DialogDescription
+                        className="flex flex-col gap-3"
+                        asChild
+                      >
+                        <div>
+                          Example: test that verifies the output of a function
+                          that adds two numbers.
+                          <ReactCodeMirror
+                            value={`test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3)
+  })`}
+                            extensions={[javascript()]}
+                            className="border border-gray-400 rounded-lg shadow-inner p-2"
+                            theme={
+                              resolvedTheme === 'dark'
+                                ? vscodeDark
+                                : githubLight
+                            }
+                            readOnly
+                          />
+                        </div>
                       </DialogDescription>
                     </DialogHeader>
                   </DialogContent>
