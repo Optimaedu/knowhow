@@ -78,4 +78,5 @@ model Challenge {
   userId      String?
   User        User?    @relation(fields: [userId], references: [id])
   tips        String?
+  tests       String
 }

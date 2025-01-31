@@ -14,7 +14,11 @@ export const getChallenges = async () => {
       throw new Error("User not authorized");
     }
 
-   return await prisma.challenge.findMany();
+    return await prisma.challenge.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
 
   } catch (error) {
     console.error('Error fetching challenges for user:', error);
