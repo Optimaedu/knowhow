@@ -20,7 +20,8 @@ model User {
   accounts      Account[]
   challenges    Challenge[]
   experience    Experience[]
-
+  submission    Submission[]
+  
   @@unique([email])
   @@map("user")
 }
@@ -82,8 +83,9 @@ model Challenge {
   user        User?        @relation(fields: [userId], references: [id])
   tips        String?
   tests       String
+  submission  Submission[]
   experience  Experience[]
-
+  
   @@map("challenge")
 }
 
@@ -98,4 +100,19 @@ model Experience {
   challenge   Challenge @relation(fields: [challengeId], references: [id])
 
   @@map("xp")
+}
+
+model Submission {
+  id          String    @id @default(uuid())
+  userId      String
+  challengeId Int
+  code        String
+  passed      Boolean
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now()) @updatedAt
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  challenge   Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, challengeId], name: "userId_challengeId")
+  @@map("submission")
 }

@@ -48,11 +48,12 @@ export default function Challenges({
                   )
 
                   const levelDescription = getLevelDescription(challenge.level)
+                  const challengeId = Number(challenge.id)
 
                   return (
                     <Link
-                      href={`/challenges/${challenge.id}`}
-                      key={challenge.id}
+                      href={`/challenges/${challengeId}`}
+                      key={challengeId}
                       legacyBehavior
                     >
                       <TableRow className="cursor-pointer">
