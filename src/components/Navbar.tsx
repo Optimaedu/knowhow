@@ -37,6 +37,7 @@ export default function Navbar() {
       },
     })
   }
+
   return (
     <nav className="sticky top-0 z-50 border-b bg-white dark:bg-black h-16">
       <div className="max-w-7xl mx-auto px-4">
@@ -73,15 +74,19 @@ export default function Navbar() {
                   <DropdownMenuContent className="w-56" align="end" forceMount>
                     <DropdownMenuLabel className="font-normal">
                       <div className="flex flex-col gap-1">
-                        <p>1 XP</p>
-                        <Progress value={1} max={5} className="w-full" />
+                        <p>{session.user?.xp} XP</p>
+                        <Progress
+                          value={session.user?.xp}
+                          max={5}
+                          className="w-full"
+                        />
                         <div className="flex items-center justify-between text-sm">
-                          <p>Level 0</p>
+                          <p>Level {session.user?.level}</p>
                           <div>
                             <span className="text-muted-foreground">
-                              5 XP to
+                              {session.user?.xp} XP to
                             </span>{' '}
-                            Level 1
+                            Level {session.user?.level + 1}
                           </div>
                         </div>
                       </div>

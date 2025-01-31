@@ -8,17 +8,21 @@ datasource db {
 }
 
 model User {
-  id            String      @id
-  email         String      @unique
+  id            String       @id
   name          String
+  email         String
   emailVerified Boolean
   image         String?
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @default(now()) @updatedAt
+  level         Int          @default(0)
+  xp            Int          @default(0)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @default(now()) @updatedAt
   sessions      Session[]
   accounts      Account[]
   challenges    Challenge[]
+  experience    Experience[]
 
+  @@unique([email])
   @@map("user")
 }
 
@@ -68,15 +72,31 @@ model Verification {
 }
 
 model Challenge {
-  id          Int      @id @default(autoincrement())
+  id          Int          @id @default(autoincrement())
   title       String
   description String
   level       Int
   boilerplate String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now()) @updatedAt
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now()) @updatedAt
   userId      String?
-  User        User?    @relation(fields: [userId], references: [id])
+  user        User?        @relation(fields: [userId], references: [id])
   tips        String?
   tests       String
+  experience  Experience[]
+
+  @@map("challenge")
+}
+
+model Experience {
+  id          Int       @id @default(autoincrement())
+  value       Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now()) @updatedAt
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  challengeId Int
+  challenge   Challenge @relation(fields: [challengeId], references: [id])
+
+  @@map("xp")
 }
