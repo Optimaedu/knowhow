@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -30,11 +30,18 @@ export default function CreateChallenge() {
   const [difficulty, setDifficulty] = useState('')
   const [tests, setTests] = useState('')
   const [boilerplate, setBoilerplate] = useState('')
+  const [exampleCode, setExampleCode] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log({ title, instructions, difficulty, tests, boilerplate })
   }
+
+  useEffect(() => {
+    setExampleCode(`test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});`)
+  }, [])
 
   return (
     <div className="container mx-auto p-4">
@@ -86,7 +93,7 @@ export default function CreateChallenge() {
               <div className="flex gap-1 items-center">
                 <Label htmlFor="tests">Tests</Label>
                 <Dialog>
-                  <DialogTrigger className="hover:text-gray-300 hover:border-gray-300 bg-white text-gray-400 border-gray-400 border-2 text-sm font-semibold rounded-full w-5 h-5 flex justify-center items-center">
+                  <DialogTrigger className="hover:text-gray-300 hover:border-gray-300 bg-transparent text-gray-400 border-gray-400 border-2 text-sm font-semibold rounded-full w-5 h-5 flex justify-center items-center">
                     ?
                   </DialogTrigger>
                   <DialogContent>
@@ -97,9 +104,12 @@ export default function CreateChallenge() {
                       <DialogDescription className="flex flex-col gap-3">
                         Example: test that verifies the output of a function
                         that adds two numbers.
-                        <code className="bg-gray-200 p-3 rounded-lg shadow-inner">
-                          {`test('adds 1 + 2 to equal 3', () => {expect(sum(1, 2)).toBe(3)})`}
-                        </code>
+                        <ReactCodeMirror
+                          value={exampleCode}
+                          extensions={[javascript()]}
+                          readOnly
+                          className="border border-gray-400 rounded-lg shadow-inner p-2 cursor-default "
+                        />
                       </DialogDescription>
                     </DialogHeader>
                   </DialogContent>
