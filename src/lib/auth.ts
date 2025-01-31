@@ -14,12 +14,9 @@ export const auth = betterAuth({
     },
     user: {
         additionalFields: {
-            level: {
-                type: "number",
+            role: {
+                type: "string",
             },
-            xp: {
-                type: "number",
-            }
         }
     }
 });

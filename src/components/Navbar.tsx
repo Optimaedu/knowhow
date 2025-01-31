@@ -74,19 +74,15 @@ export default function Navbar() {
                   <DropdownMenuContent className="w-56" align="end" forceMount>
                     <DropdownMenuLabel className="font-normal">
                       <div className="flex flex-col gap-1">
-                        <p>{session.user?.xp} XP</p>
-                        <Progress
-                          value={session.user?.xp}
-                          max={5}
-                          className="w-full"
-                        />
+                        <p>1 XP</p>
+                        <Progress value={1} max={5} className="w-full" />
                         <div className="flex items-center justify-between text-sm">
-                          <p>Level {session.user?.level}</p>
+                          <p>Level 0</p>
                           <div>
                             <span className="text-muted-foreground">
-                              {session.user?.xp} XP to
+                              4 XP to
                             </span>{' '}
-                            Level {session.user?.level + 1}
+                            Level 1
                           </div>
                         </div>
                       </div>

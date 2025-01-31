@@ -13,8 +13,7 @@ model User {
   email         String
   emailVerified Boolean
   image         String?
-  level         Int          @default(0)
-  xp            Int          @default(0)
+  role          String       @default("user")
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @default(now()) @updatedAt
   sessions      Session[]
