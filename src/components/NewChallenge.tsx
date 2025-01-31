@@ -15,6 +15,14 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 
 export default function CreateChallenge() {
   const [title, setTitle] = useState('')
@@ -75,8 +83,28 @@ export default function CreateChallenge() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="tests">Tests</Label>
-
+              <div className="flex gap-1 items-center">
+                <Label htmlFor="tests">Tests</Label>
+                <Dialog>
+                  <DialogTrigger className="hover:text-gray-300 hover:border-gray-300 bg-white text-gray-400 border-gray-400 border-2 text-sm font-semibold rounded-full w-5 h-5 flex justify-center items-center">
+                    ?
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>
+                        Instructions on how to write tests
+                      </DialogTitle>
+                      <DialogDescription className="flex flex-col gap-3">
+                        Example: test that verifies the output of a function
+                        that adds two numbers.
+                        <code className="bg-gray-200 p-3 rounded-lg shadow-inner">
+                          {`test('adds 1 + 2 to equal 3', () => {expect(sum(1, 2)).toBe(3)})`}
+                        </code>
+                      </DialogDescription>
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
+              </div>
               <ReactCodeMirror
                 value={tests}
                 onChange={setTests}
