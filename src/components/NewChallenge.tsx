@@ -161,7 +161,7 @@ export default function CreateChallenge() {
                           <ReactCodeMirror
                             value={`test('adds 1 + 2 to equal 3', () => {
   expect(sum(1, 2)).toBe(3)
-  })`}
+})`}
                             extensions={[javascript()]}
                             className="border border-gray-400 rounded-lg shadow-inner p-2"
                             theme={
