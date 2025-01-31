@@ -93,7 +93,7 @@ export default function CreateChallenge() {
               <div className="flex gap-1 items-center">
                 <Label htmlFor="tests">Tests</Label>
                 <Dialog>
-                  <DialogTrigger className="hover:text-gray-300 hover:border-gray-300 bg-transparent text-gray-400 border-gray-400 border-2 text-sm font-semibold rounded-full w-5 h-5 flex justify-center items-center">
+                  <DialogTrigger className="hover:text-gray-300 hover:border-gray-300 bg-transparent text-gray-400 border-gray-400 border-2 text-sm font-bold rounded-full w-5 h-5 flex justify-center items-center">
                     ?
                   </DialogTrigger>
                   <DialogContent>
