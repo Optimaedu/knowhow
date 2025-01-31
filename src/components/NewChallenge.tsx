@@ -35,6 +35,7 @@ export default function CreateChallenge() {
   const [instructions, setInstructions] = useState('')
   const [difficulty, setDifficulty] = useState('')
   const [tips, setTips] = useState('')
+  const [exampleCode, setExampleCode] = useState('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const router = useRouter()
   const [tests, setTests] = useState(`describe('reverse', [
@@ -74,6 +75,12 @@ export default function CreateChallenge() {
       setIsLoading(false)
     }
   }
+
+  useEffect(() => {
+    setExampleCode(`test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});`)
+  }, [])
 
   return (
     <div className="container mx-auto p-4">
@@ -127,6 +134,19 @@ export default function CreateChallenge() {
             </div>
 
             <div className="space-y-2">
+              <Label htmlFor="tips">Tips</Label>
+
+              <ReactCodeMirror
+                value={tips}
+                onChange={setTips}
+                extensions={[javascript()]}
+                placeholder="Enter tips for the challenge"
+                className="border rounded-lg w-full"
+                theme={resolvedTheme === 'dark' ? vscodeDark : githubLight}
+              />
+            </div>
+
+            <div className="space-y-2">
               <div className="flex gap-1 items-center">
                 <Label htmlFor="tests">Tests</Label>
                 <Dialog>
@@ -152,22 +172,6 @@ export default function CreateChallenge() {
                   </DialogContent>
                 </Dialog>
               </div>
-
-              <Label htmlFor="tips">Tips</Label>
-
-              <ReactCodeMirror
-                value={tips}
-                onChange={setTips}
-                extensions={[javascript()]}
-                placeholder="Enter tips for the challenge"
-                className="border rounded-lg w-full"
-                theme={resolvedTheme === 'dark' ? vscodeDark : githubLight}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="tests">Tests</Label>
-
               <ReactCodeMirror
                 value={tests}
                 onChange={setTests}
