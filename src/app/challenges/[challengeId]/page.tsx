@@ -1,5 +1,4 @@
 import Challenge from '@/components/Challenge'
-import React from 'react'
 import { getChallengeById } from '@/data/challenges/challenge'
 
 export default async function ChallengePage({
