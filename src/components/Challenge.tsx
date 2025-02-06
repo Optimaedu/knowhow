@@ -202,7 +202,12 @@ export default function Challenge(challenge: Challenge) {
                 </ScrollArea>
                 <Button
                   className="rounded-none"
-                  onClick={passed ? () => router.push('/success') : runTests}
+                  onClick={
+                    passed
+                      ? () =>
+                          router.push(`/challenges/completed/${challenge.id}`)
+                      : runTests
+                  }
                 >
                   {passed ? 'Continue' : 'Run'}
                 </Button>

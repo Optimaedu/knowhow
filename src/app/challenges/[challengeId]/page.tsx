@@ -2,7 +2,7 @@ import Challenge from '@/components/Challenge'
 import React from 'react'
 import { getChallengeById } from '@/data/challenges/challenge'
 
-type Props = {
+export type Props = {
   params: {
     challengeId: string
   }
