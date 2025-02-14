@@ -20,11 +20,12 @@ import { describe, test, expect } from '@/utils/testUtils'
 import { BookText, Lightbulb, Terminal } from 'lucide-react'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
-export default function Challenge(challenge: Challenge) {
+export default function Challenge({ challenge, submissions }) {
   const { resolvedTheme } = useTheme()
   const [code, setCode] = useState(`${challenge.boilerplate}`)
   const [showTips, setShowTips] = useState(false)
   const [testResults, setTestResults] = useState<string[]>([])
+  console.log(submissions)
 
   const runTests = async () => {
     try {
@@ -47,8 +48,7 @@ export default function Challenge(challenge: Challenge) {
       setTestResults(
         results.map(
           (result) =>
-            `${result.passed ? '✓' : '✗'} ${result.description}${
-              result.error ? `\n   ${result.error}` : ''
+            `${result.passed ? '✓' : '✗'} ${result.description}${result.error ? `\n   ${result.error}` : ''
             }`
         )
       )
@@ -121,6 +121,8 @@ export default function Challenge(challenge: Challenge) {
                       <li>{challenge.tips}</li>
                     </ul>
                   )}
+                  <div>{submissions[0]?.code}</div>
+
                 </TabsContent>
                 <TabsContent value="tests" className="p-4 mt-0">
                   <div>
