@@ -28,7 +28,7 @@ async function main() {
     expect(sayHello()).toBe('Hello World')
   })
 ])`,
-       userId: admin.id
+        userId: admin.id
       },
       {
         title: 'Reverse String',
@@ -49,17 +49,17 @@ async function main() {
     expect(reverseString('a')).toBe('a')
   })
 ])`,
-                userId: admin.id
-            },
-            {
-              title: 'Case Insensitive String Comparison',
-              description: 'Write a function that compares two strings case-insensitively.',
-              level: 1,
-              boilerplate: `function compareStringsIgnoreCase(str1, str2) {\n  // Your code here\n}`,
-              tips: `1. Convert both strings to the same case before comparison
+        userId: admin.id
+      },
+      {
+        title: 'Case Insensitive String Comparison',
+        description: 'Write a function that compares two strings case-insensitively.',
+        level: 1,
+        boilerplate: `function compareStringsIgnoreCase(str1, str2) {\n  // Your code here\n}`,
+        tips: `1. Convert both strings to the same case before comparison
 2. JavaScript provides a method to change the case of a string
 3. The strict equality operator (===) can be used for comparison`,
-    tests: `describe('compareStringsIgnoreCase', [
+        tests: `describe('compareStringsIgnoreCase', [
   test('Compare same words with different cases', () => {
     expect(compareStringsIgnoreCase('hello', 'HELLO')).toBe(true);
   }),
@@ -80,17 +80,17 @@ async function main() {
     expect(compareStringsIgnoreCase(randomString, randomString.toLowerCase())).toBe(true);
   })
 ])`,
-    userId: admin.id
-},
-{
-    title: 'Alternate Case String',
-    description: 'Write a function that transforms a string by alternating uppercase and lowercase letters, starting with uppercase.',
-    level: 2,
-    boilerplate: `function alternateCase(str) {\n  // Your code here\n}`,
-    tips: `1. Iterate over the string and modify each character based on its index.
+        userId: admin.id
+      },
+      {
+        title: 'Alternate Case String',
+        description: 'Write a function that transforms a string by alternating uppercase and lowercase letters, starting with uppercase.',
+        level: 2,
+        boilerplate: `function alternateCase(str) {\n  // Your code here\n}`,
+        tips: `1. Iterate over the string and modify each character based on its index.
   2. Use JavaScript methods to convert characters to uppercase or lowercase.
   3. Consider handling spaces and special characters appropriately.`,
-  tests: `describe('alternateCase', [
+        tests: `describe('alternateCase', [
     test('Transform a simple word', () => {
       expect(alternateCase('javascript')).toBe('JaVaScRiPt');
     }),
@@ -98,18 +98,18 @@ async function main() {
       expect(alternateCase('Hello world!')).toBe('HeLlO WoRlD!');
     })
   ])`,
-  userId: admin.id
-},
-{
-  title: 'Capitalize Names',
-  description: 'Write a function that takes a string as an argument and returns a new string where the first letter of each word is capitalized, and the rest of the letters in each word remain lowercase.',
-  level: 1,
-  boilerplate: `function capitalizeNames(text) {\n  // Your code here\n}`,
-  tips: `1. Split the text into words.
+        userId: admin.id
+      },
+      {
+        title: 'Capitalize Names',
+        description: 'Write a function that takes a string as an argument and returns a new string where the first letter of each word is capitalized, and the rest of the letters in each word remain lowercase.',
+        level: 1,
+        boilerplate: `function capitalizeNames(text) {\n  // Your code here\n}`,
+        tips: `1. Split the text into words.
   2. Capitalize the first letter of each word.
   3. Keep the other letters of each word in lowercase.
   4. Join the words back into a single string.`,
-  tests: `describe('capitalizeNames', [
+        tests: `describe('capitalizeNames', [
     test('Capitalize the first letter of each word', () => {
       expect(capitalizeNames('anna andersson')).toBe('Anna Andersson');
     }),
@@ -118,17 +118,17 @@ async function main() {
       expect(capitalizeNames('johan svensson')).toBe('Johan Svensson');
     })
   ])`,
-  userId: admin.id
-},
-{
-    title: 'Calculate Average',
-    description: 'Write a function that takes an array of numbers and calculates the average of the elements in the array.',
-    level: 1,
-    boilerplate: `function calculateAverage(numbers) {\n  // Your code here\n}`,
-    tips: `1. Use the reduce method to sum the elements in the array.
+        userId: admin.id
+      },
+      {
+        title: 'Calculate Average',
+        description: 'Write a function that takes an array of numbers and calculates the average of the elements in the array.',
+        level: 1,
+        boilerplate: `function calculateAverage(numbers) {\n  // Your code here\n}`,
+        tips: `1. Use the reduce method to sum the elements in the array.
   2. Divide the sum by the length of the array to get the average.
   3. Handle edge cases, such as an empty array, appropriately.`,
-  tests: `describe('calculateAverage', [
+        tests: `describe('calculateAverage', [
     test('Calculate average of [2, 4, 6, 8]', () => {
       expect(calculateAverage([2, 4, 6, 8])).toBe(5);
     }),
@@ -149,8 +149,7 @@ async function main() {
       const randomArr = generateRandomArray();
       expect(calculateAverage(randomArr)).toBe(expectedAverage(randomArr));
     })
-  ]);`,
-])`,
+  ])`,
         userId: admin.id
       },
       {
