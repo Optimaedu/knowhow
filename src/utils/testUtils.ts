@@ -6,6 +6,14 @@ export function expect<T extends Comparable>(received: T) {
             }
             return true;
         },
+        toEqual: (expected: T) => {
+            const receivedStr = JSON.stringify(received);
+            const expectedStr = JSON.stringify(expected);
+            if (receivedStr !== expectedStr) {
+                throw new Error(`Expected ${expectedStr} but received ${receivedStr}`);
+            }
+            return true;
+        }
     };
 }
 
@@ -31,4 +39,4 @@ export function describe(description: string, testCases: TestCase[]): TestResult
 
 export function test(description: string, fn: () => void): TestCase {
     return { description, fn };
-} 
+}
