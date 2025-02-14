@@ -28,13 +28,20 @@ import Link from 'next/link'
 export default function Challenge({
   challenge,
   previousSubmission,
+  hasUnlockedTips,
 }: ChallengeProps) {
   const { resolvedTheme } = useTheme()
   const [code, setCode] = useState('')
-  const [showTips, setShowTips] = useState(false)
+  const [showTips, setShowTips] = useState(!!hasUnlockedTips)
+  const [tipsUnlocked, setTipsUnlocked] = useState(!!hasUnlockedTips)
   const [testResults, setTestResults] = useState<string[]>([])
   const [passed, setPassed] = useState(false)
   const router = useRouter()
+
+  useEffect(() => {
+    setTipsUnlocked(!!hasUnlockedTips)
+    setShowTips(!!hasUnlockedTips)
+  }, [hasUnlockedTips])
 
   useEffect(() => {
     if (previousSubmission && previousSubmission.code) {
@@ -47,8 +54,13 @@ export default function Challenge({
   }, [previousSubmission, challenge.boilerplate])
 
   const showSolution = async () => {
-    if (!showTips) await depleteUserXP({ challenge })
-    setShowTips(!showTips)
+    if (!tipsUnlocked) {
+      await depleteUserXP({ challenge })
+      setTipsUnlocked(true)
+      setShowTips(true)
+    } else {
+      setShowTips(!showTips)
+    }
   }
 
   const runTests = async () => {
@@ -147,14 +159,25 @@ export default function Challenge({
                 <TabsContent value="hints" className="p-4 mt-0">
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={showSolution}
-                      >
-                        {showTips ? 'Hide Tips' : 'Show Tips'}
-                        <Lightbulb className="ml-2 size-4" />
-                      </Button>
+                      {!tipsUnlocked ? (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={showSolution}
+                        >
+                          Unlock Tips (-70 XP)
+                          <Lightbulb className="ml-2 size-4" />
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setShowTips(!showTips)}
+                        >
+                          {showTips ? 'Hide Tips' : 'Show Tips'}
+                          <Lightbulb className="ml-2 size-4" />
+                        </Button>
+                      )}
                       {previousSubmission?.passed && (
                         <Link
                           href={`/challenges/completed/${challenge.id}`}
