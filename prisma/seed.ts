@@ -10,7 +10,7 @@ async function main() {
       email: 'email@gmail.com',
       name: 'Admin',
       emailVerified: true,
-      role: 'admin'
+      role: 'admin',
     },
   })
 
@@ -28,7 +28,7 @@ async function main() {
     expect(sayHello()).toBe('Hello World')
   })
 ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Reverse String',
@@ -49,11 +49,12 @@ async function main() {
     expect(reverseString('a')).toBe('a')
   })
 ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Case Insensitive String Comparison',
-        description: 'Write a function that compares two strings case-insensitively.',
+        description:
+          'Write a function that compares two strings case-insensitively.',
         level: 1,
         boilerplate: `function compareStringsIgnoreCase(str1, str2) {\n  // Your code here\n}`,
         tips: `1. Convert both strings to the same case before comparison
@@ -80,11 +81,12 @@ async function main() {
     expect(compareStringsIgnoreCase(randomString, randomString.toLowerCase())).toBe(true);
   })
 ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Alternate Case String',
-        description: 'Write a function that transforms a string by alternating uppercase and lowercase letters, starting with uppercase.',
+        description:
+          'Write a function that transforms a string by alternating uppercase and lowercase letters, starting with uppercase.',
         level: 2,
         boilerplate: `function alternateCase(str) {\n  // Your code here\n}`,
         tips: `1. Iterate over the string and modify each character based on its index.
@@ -98,11 +100,12 @@ async function main() {
       expect(alternateCase('Hello world!')).toBe('HeLlO WoRlD!');
     })
   ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Capitalize Names',
-        description: 'Write a function that takes a string as an argument and returns a new string where the first letter of each word is capitalized, and the rest of the letters in each word remain lowercase.',
+        description:
+          'Write a function that takes a string as an argument and returns a new string where the first letter of each word is capitalized, and the rest of the letters in each word remain lowercase.',
         level: 1,
         boilerplate: `function capitalizeNames(text) {\n  // Your code here\n}`,
         tips: `1. Split the text into words.
@@ -118,11 +121,12 @@ async function main() {
       expect(capitalizeNames('johan svensson')).toBe('Johan Svensson');
     })
   ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Calculate Average',
-        description: 'Write a function that takes an array of numbers and calculates the average of the elements in the array.',
+        description:
+          'Write a function that takes an array of numbers and calculates the average of the elements in the array.',
         level: 1,
         boilerplate: `function calculateAverage(numbers) {\n  // Your code here\n}`,
         tips: `1. Use the reduce method to sum the elements in the array.
@@ -150,11 +154,12 @@ async function main() {
       expect(calculateAverage(randomArr)).toBe(expectedAverage(randomArr));
     })
   ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Second Largest Number',
-        description: 'Write a function that returns the second largest number in an array of numbers.',
+        description:
+          'Write a function that returns the second largest number in an array of numbers.',
         level: 1,
         boilerplate: `function secondLargest(numbers) {\n  // Your code here\n}`,
         tips: `1. Consider sorting the array first
@@ -170,11 +175,12 @@ async function main() {
     expect(secondLargest([-5, -2, -10, -1])).toBe(-2)
   }),
 ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Remove Duplicates',
-        description: 'Write a function that takes an array as an argument and returns a new array where all duplicates have been removed, so that each element only appears once. For example, if the input is [1,2,2,3,4,4,5], the function should return [1,2,3,4,5].',
+        description:
+          'Write a function that takes an array as an argument and returns a new array where all duplicates have been removed, so that each element only appears once. For example, if the input is [1,2,2,3,4,4,5], the function should return [1,2,3,4,5].',
         level: 0,
         boilerplate: `function removeDuplicates(arr) {\n  // Your code here\n}`,
         tips: `1. Consider using Set to remove duplicates
@@ -193,11 +199,12 @@ async function main() {
     expect(removeDuplicates([1, 1, 1, 1])).toEqual([1])
   })
 ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Find Missing Number',
-        description: 'Write a function that takes an array of integers in ascending order and finds the missing number in the sequence. For example, if the array is [1,2,3,5], the function should return 4.',
+        description:
+          'Write a function that takes an array of integers in ascending order and finds the missing number in the sequence. For example, if the array is [1,2,3,5], the function should return 4.',
         level: 1,
         boilerplate: `function findMissingNumber(numbers) {\n  // Your code here\n}`,
         tips: `1. Consider that the numbers are in ascending order
@@ -216,11 +223,12 @@ async function main() {
     expect(findMissingNumber([1, 3])).toBe(2)
   })
 ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Anagram Checker',
-        description: 'Write a function that takes two strings as arguments and determines if they are anagrams. Two strings are anagrams if they contain the same letters in the same quantity but in a different order. For example, "listen" and "silent" are anagrams. But "Hello" and "World" is not.',
+        description:
+          'Write a function that takes two strings as arguments and determines if they are anagrams. Two strings are anagrams if they contain the same letters in the same quantity but in a different order. For example, "listen" and "silent" are anagrams. But "Hello" and "World" is not.',
         level: 1,
         boilerplate: `function areAnagrams(str1, str2) {\n  // Your code here\n}`,
         tips: `1. Consider converting strings to lowercase to make comparison case-insensitive
@@ -240,9 +248,34 @@ async function main() {
     expect(areAnagrams('Debit', 'Bited')).toBe(true)
   })
 ])`,
-        userId: admin.id
-      }
-    ]
+        userId: admin.id,
+      },
+      {
+        title: 'Fibonacci sequence',
+        description:
+          'Write a function that takes an integer and returns an array of as many numbers from the Fibonacci sequence.',
+        level: 1,
+        boilerplate: `function fibonacciSequence(count) {\n  // Your code here\n}`,
+        tips: `1. Start with an array containing the first two numbers: [0, 1]
+2. Use a loop to generate the next number by adding the last two numbers in the array`,
+        tests: `describe('fibonacciSequence', [
+  test('Generate first 5 Fibonacci numbers', () => {
+    expect(fibonacciSequence(5)).toEqual([0, 1, 1, 2, 3]);
+  }),
+  test('Generate first 3 Fibonacci numbers', () => {
+    expect(fibonacciSequence(3)).toEqual([0, 1, 1]);
+  }),
+  test('Generate no Fibonacci numbers', () => {
+    expect(fibonacciSequence(0)).toEqual([]);
+  }),
+  test('Generate first 1 Fibonacci number', () => {
+    expect(fibonacciSequence(1)).toEqual([0]);
+  })
+])
+`,
+        userId: admin.id,
+      },
+    ],
   })
 }
 
