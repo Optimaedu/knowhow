@@ -53,7 +53,8 @@ async function main() {
       },
       {
         title: 'Case Insensitive String Comparison',
-        description: 'Write a function that compares two strings case-insensitively.',
+        description:
+          'Write a function that compares two strings case-insensitively.',
         level: 1,
         boilerplate: `function compareStringsIgnoreCase(str1, str2) {\n  // Your code here\n}`,
         tips: `1. Convert both strings to the same case before comparison
@@ -80,11 +81,12 @@ async function main() {
     expect(compareStringsIgnoreCase(randomString, randomString.toLowerCase())).toBe(true);
   })
 ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Alternate Case String',
-        description: 'Write a function that transforms a string by alternating uppercase and lowercase letters, starting with uppercase.',
+        description:
+          'Write a function that transforms a string by alternating uppercase and lowercase letters, starting with uppercase.',
         level: 2,
         boilerplate: `function alternateCase(str) {\n  // Your code here\n}`,
         tips: `1. Iterate over the string and modify each character based on its index.
@@ -98,11 +100,12 @@ async function main() {
       expect(alternateCase('Hello world!')).toBe('HeLlO WoRlD!');
     })
   ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Capitalize Names',
-        description: 'Write a function that takes a string as an argument and returns a new string where the first letter of each word is capitalized, and the rest of the letters in each word remain lowercase.',
+        description:
+          'Write a function that takes a string as an argument and returns a new string where the first letter of each word is capitalized, and the rest of the letters in each word remain lowercase.',
         level: 1,
         boilerplate: `function capitalizeNames(text) {\n  // Your code here\n}`,
         tips: `1. Split the text into words.
@@ -118,11 +121,12 @@ async function main() {
       expect(capitalizeNames('johan svensson')).toBe('Johan Svensson');
     })
   ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Calculate Average',
-        description: 'Write a function that takes an array of numbers and calculates the average of the elements in the array.',
+        description:
+          'Write a function that takes an array of numbers and calculates the average of the elements in the array.',
         level: 1,
         boilerplate: `function calculateAverage(numbers) {\n  // Your code here\n}`,
         tips: `1. Use the reduce method to sum the elements in the array.
@@ -150,7 +154,7 @@ async function main() {
       expect(calculateAverage(randomArr)).toBe(expectedAverage(randomArr));
     })
   ])`,
-        userId: admin.id
+        userId: admin.id,
       },
       {
         title: 'Second Largest Number',
@@ -200,6 +204,7 @@ async function main() {
       {
         title: 'Find Missing Number',
         description:
+
           'Write a function that takes an array of integers in ascending order and finds the missing number in the sequence. For example, if the array is [1,2,3,5], the function should return 4.',
         level: 1,
         boilerplate: `function findMissingNumber(numbers) {\n  // Your code here\n}`,
@@ -244,6 +249,31 @@ async function main() {
     expect(areAnagrams('Debit', 'Bited')).toBe(true)
   })
 ])`,
+        userId: admin.id,
+      },
+      {
+        title: 'Fibonacci sequence',
+        description:
+          'Write a function that takes an integer and returns an array of as many numbers from the Fibonacci sequence.',
+        level: 1,
+        boilerplate: `function fibonacciSequence(count) {\n  // Your code here\n}`,
+        tips: `1. Start with an array containing the first two numbers: [0, 1]
+2. Use a loop to generate the next number by adding the last two numbers in the array`,
+        tests: `describe('fibonacciSequence', [
+  test('Generate first 5 Fibonacci numbers', () => {
+    expect(fibonacciSequence(5)).toEqual([0, 1, 1, 2, 3]);
+  }),
+  test('Generate first 3 Fibonacci numbers', () => {
+    expect(fibonacciSequence(3)).toEqual([0, 1, 1]);
+  }),
+  test('Generate no Fibonacci numbers', () => {
+    expect(fibonacciSequence(0)).toEqual([]);
+  }),
+  test('Generate first 1 Fibonacci number', () => {
+    expect(fibonacciSequence(1)).toEqual([0]);
+  })
+])
+`,
         userId: admin.id,
       },
       {
