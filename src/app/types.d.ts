@@ -27,6 +27,7 @@ interface ChallengeProps {
         submission?: Submission[]
     }
     previousSubmission: { code: string; passed: boolean } | null
+    hasUnlockedTips?: boolean
 }
 
 type TestCase = {
