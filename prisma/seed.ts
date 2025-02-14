@@ -204,6 +204,7 @@ async function main() {
       {
         title: 'Find Missing Number',
         description:
+
           'Write a function that takes an array of integers in ascending order and finds the missing number in the sequence. For example, if the array is [1,2,3,5], the function should return 4.',
         level: 1,
         boilerplate: `function findMissingNumber(numbers) {\n  // Your code here\n}`,
@@ -273,6 +274,53 @@ async function main() {
   })
 ])
 `,
+        userId: admin.id,
+      },
+      {
+        title: 'Return Biggest Number',
+        description:
+          'Write a function that has an array with numbers as argument, and returns the largest number in the array. If the array, for example, is [3, 5, 8, 2, 7], the function should return 8.',
+        level: 1,
+        boilerplate: `function findLargestNumber(numbers) {\n // Your code here \n}`,
+        tips: `1.	Try using the javascript Math function to get the max number of the array.
+               2. You could also try using pre-existing functions like .reduce to get the same result.`,
+        tests: `describe('findLargestNumber', [
+                test('returns the largest number for a randomly generated array', () => {
+                  const numbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 101))
+                  const expected = Math.max(...numbers);
+                  expect(findLargestNumber(numbers)).toBe(expected)
+                }),
+                test('returns the largest number for a fixed array with negative and positive values', () => {
+                  const numbers = [-10, -20, -3, -50, 0];
+                  expect(findLargestNumber(numbers)).toBe(0)
+                })
+              ])`,
+        userId: admin.id,
+      },
+      {
+        title: 'Sum Of Array Elements',
+        description:
+          'Write a function that has an array of numbers as argument and returns the sum of all elements in the array. For example, if the array is [2, 4, 10, 1], the function should return 17.',
+        level: 1,
+        boilerplate: `function sumOfElements(arr) {\n // Your code here \n}`,
+        tips: `1. Consider using JavaScript's reduce() method to iterate over the array and calculate the sum.
+               2. Write or imagine a few test cases (e.g., a fixed array with known values, a random array, and even negative numbers) before you code. This helps you confirm that your solution works for a variety of scenarios.`,
+        tests: `describe('sumOfElements', [
+                test('return the sum for a randomly generated array', () => {
+                  const amount = Math.floor(Math.random() * (10 - 5 + 1)) + 5
+                  const arr = []
+                  for (let i = 0; i < amount; i++) {
+                    arr.push(Math.floor(Math.random() * (100 - 0 + 1)) + 0)
+                  }
+                  const expected = arr.reduce((acc, curr) => acc + curr, 0)
+                  expect(sumOfElements(arr)).toBe(expected)
+                }),
+                test('return the correct sum for a fixed array [2, 4, -10, 0]', () => {
+                  const arr = [2, 4, -10, 0];
+                  const expected = -4;
+                  expect(sumOfElements(arr)).toBe(expected);
+                }),
+              ])`,
         userId: admin.id,
       },
     ],

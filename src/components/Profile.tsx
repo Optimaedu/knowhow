@@ -78,7 +78,9 @@ export default function Profile({
   }
 
   const isLoading = sessionPending || isPending
-  const hasCreatedChallenges = userChallenges.length > 0
+  const hasCreatedChallenges = userChallenges.some(
+    (challenge) => challenge.userId === session?.user?.id
+  )
 
   return (
     <div className="container mx-auto px-4 py-8">
