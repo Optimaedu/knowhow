@@ -162,7 +162,7 @@ async function main() {
                 test('returns the largest number for a fixed array with negative and positive values', () => {
                   const numbers = [-10, -20, -3, -50, 0];
                   expect(findLargestNumber(numbers)).toBe(0)
-                }
+                })
               ])`,
         userId: admin.id,
       },
